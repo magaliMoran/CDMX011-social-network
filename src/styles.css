@@ -1,0 +1,17 @@
+.fondo{
+    background:black;
+}
+.login{
+    position: relative;
+    width: 150px;
+    height: 120px;
+    background: rgb(236, 14, 14);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(231, 221, 221);
+    border-radius: 9spx;
+    height: 250px ;
+    margin: 20px;
+    padding: 11px 8px;
+}
