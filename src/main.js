@@ -1,3 +1,34 @@
-import { inicio } from './lib/componentes/Componets/Iniciar.js';
+import { inicio } from './Component/Iniciar.js';
+// eslint-disable-next-line import/no-unresolved
+import { muro } from './Component/Muro.js';
+// eslint-disable-next-line import/no-unresolved
+// eslint-disable-next-line no-unused-vars
+import { registro } from './Component/Registro.js';
 
-document.getElementById('root').append(inicio());
+const rootDiv = document.getElementById('root');
+
+const rutas = {
+    '/': inicio,
+  '/registro': registro,
+  '/muro': muro,
+     }
+    
+export const onNavigate = (pathname) => {
+        window.history.pushState(
+          {},
+          pathname,
+          window.location.origin + pathname,
+        );
+        while (rootDiv.firstChild) {
+          rootDiv.removeChild(rootDiv.firstChild);
+        }
+        rootDiv.appendChild(rutas[window.location.pathname]());
+      };
+      const component = rutas[window.location.pathname];
+      window.onpopstate = () => {
+        while (rootDiv.firstChild){
+          rootDiv.removeChild(rootDiv.firstChild);
+        }
+        rootDiv.appendChild(rutas[window.location.pathname]());
+      };
+    rootDiv.appendChild(component());

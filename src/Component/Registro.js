@@ -1,29 +1,30 @@
+// eslint-disable-next-line no-unused-vars
+import { onNavigate } from '../main.js';
+
 export const registro = () => {
   const registroDiv = document.createElement('div');
   const titulo = document.createElement('h1');
   titulo.id = 'Titulo';
   titulo.textContent = '¡Registrate!';
   const nombre = document.createElement('input');
-  nombre.textContent = 'nombre';
-  nombre.className = 'registro';
+  nombre.placeholder = 'Nombre';
+  nombre.id = 'nombreRegistro';
   const correoElectronico = document.createElement('input');
-  correoElectronico.textContent = 'Ingrese aqui su correo electronico';
+  correoElectronico.placeholder = 'Correo electronico';
   nombre.className = 'registro';
   const contraseña = document.createElement('input');
-  contraseña.textContent = 'Ingrese aqui su contraseña';
-  nombre.className = 'registro';
-  const confirmarContraseña = document.createElement('input');
-  confirmarContraseña.textContent = 'Confirme su contraseña';
+  contraseña.placeholder = 'Contraseña';
+  contraseña.type = 'password';
   nombre.className = 'registro';
   const botonCrearCuenta = document.createElement('button');
   botonCrearCuenta.textContent = 'Crear cuenta';
   botonCrearCuenta.id = 'boton-crear-cuenta';
-
+  
+  botonCrearCuenta.addEventListener('click', () => onNavigate('/'));
   registroDiv.append(titulo);
   registroDiv.append(nombre);
   registroDiv.append(correoElectronico);
   registroDiv.append(contraseña);
-  registroDiv.append(confirmarContraseña);
   registroDiv.append(botonCrearCuenta);
 
   return registroDiv;
