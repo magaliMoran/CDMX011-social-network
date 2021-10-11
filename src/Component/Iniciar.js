@@ -16,7 +16,7 @@ export const inicio = () => {
   inicioDiv.append(marca);
   inicioDiv.append(slogan);
   inicioDiv.append(imagenInicioDeSesion);
-  const divInicioDeSesion = document.createElement('div');
+  const divInicioDeSesion = document.createElement('form');
   divInicioDeSesion.id = 'divInicioDeSesion';
   const inicioSesion = document.createElement('h2');
   inicioSesion.textContent = 'Iniciar Sesión';
@@ -31,7 +31,7 @@ export const inicio = () => {
   const botonIngresar = document.createElement('button');
   botonIngresar.textContent = 'Ingresar';
   botonIngresar.id = 'boton-ingresar';
-  botonIngresar.addEventListener('click', () => onNavigate('/registro'));
+  botonIngresar.addEventListener('click', () => onNavigate('/muro'));
   const opcion = document.createElement('p');
   opcion.textContent = 'o';
   opcion.className = 'letra-o';
@@ -40,7 +40,7 @@ export const inicio = () => {
   textoSinCuenta.className = 'texto-no-cuenta';
   const registro = document.createElement('a');
   registro.textContent = 'Aquí';
-  registro.href= 'Registro.js';
+  registro.addEventListener('click', () => onNavigate('/registro'));
   registro.className = 'registro';
   divInicioDeSesion.appendChild(inicioSesion);
   divInicioDeSesion.appendChild(correoElectronico);
