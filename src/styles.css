@@ -99,7 +99,6 @@
   font-weight: normal;
   font-size: 24px;
   line-height: 22px;
-  
   color: #696666;
   }
   .texto-no-cuenta{
@@ -179,9 +178,7 @@
     line-height: 40px;
     
     color: #787878;
-    
-  }
-
+  } 
   #formRegistro{
     position: relative;
     align-items: center;
@@ -191,6 +188,7 @@
   }
   
   #nombreRegistro{
+   
   position: relative;
     background-color:rgb(255, 255, 255);
     height: 20px;

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
 
 export const registro = () => {
@@ -21,30 +22,21 @@ export const registro = () => {
   contraseña.type = 'password';
   contraseña.className = 'contraseña';
   const botonCrearCuenta = document.createElement('button');
-  botonCrearCuenta.textContent = 'home';
+  botonCrearCuenta.textContent = 'Crear cuenta';
   botonCrearCuenta.id = 'boton-crear-cuenta';
+  botonCrearCuenta.addEventListener('click', () => obtenerDatos());
   const homeImagen = document.createElement('img');
   homeImagen.textContent = 'Crear cuenta';
-  homeImagen.id = 'boton-crear-cuenta';
-  // eslint-disable-next-line no-undef
-  botonCrearCuenta.addEventListener('click', () => onNavigate('/'));
-
-  const botonEnviarInfo = document.createElement('button');
-  botonEnviarInfo.textContent = 'Enviar';
-  botonEnviarInfo.id = 'botonEnviarInfo';
-  botonEnviarInfo.addEventListener('click', () => {
-    const nombreInfo = document.getElementById('nombreRegistro').value;
-    console.log(nombreInfo);
-  });
-
-  
+  homeImagen.id = 'homeImagen';
+  homeImagen.src = '/Assets/home3.png';
+  homeImagen.addEventListener('click', () => onNavigate('/'));
   registroForm.append(nombre);
   registroForm.append(correoElectronico);
   registroForm.append(contraseña);
   registroForm.append(botonCrearCuenta);
   registroDiv.append(titulo);
   registroDiv.append(registroForm);
+  registroDiv.append(botonCrearCuenta);
   registroDiv.append(homeImagen);
-
   return registroDiv;
 };

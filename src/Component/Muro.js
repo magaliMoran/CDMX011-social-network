@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 
 export const muro = () => {

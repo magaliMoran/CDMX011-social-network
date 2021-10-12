@@ -19,14 +19,14 @@ export const inicio = () => {
   const divInicioDeSesion = document.createElement('form');
   divInicioDeSesion.id = 'divInicioDeSesion';
   const inicioSesion = document.createElement('h2');
-  inicioSesion.textContent = 'Iniciar Sesión';
+  inicioSesion.textContent = 'Iniciar Sesion';
   inicioSesion.id = 'inicio-sesion';
   const correoElectronico = document.createElement('input');
-  correoElectronico.placeholder = 'Correo Electrónico';
   correoElectronico.id = 'correo-electronico';
+  correoElectronico.placeholder = 'Correo Electronico';
   const contraseña = document.createElement('input');
-  contraseña.placeholder = 'Contraseña';
   contraseña.id = 'contraseña';
+  contraseña.placeholder = 'Contraseña';
   contraseña.type = 'password';
   const botonIngresar = document.createElement('button');
   botonIngresar.textContent = 'Ingresar';
@@ -36,12 +36,12 @@ export const inicio = () => {
   opcion.textContent = 'o';
   opcion.className = 'letra-o';
   const textoSinCuenta = document.createElement('p');
-  textoSinCuenta.textContent = 'No tienes cuenta. Regístrate';
+  textoSinCuenta.textContent = 'No tienes cuenta. Registrate ';
   textoSinCuenta.className = 'texto-no-cuenta';
   const registro = document.createElement('a');
-  registro.textContent = 'Aquí';
-  registro.addEventListener('click', () => onNavigate('/registro'));
+  registro.textContent = 'Aqui';
   registro.className = 'registro';
+  registro.addEventListener('click', () => onNavigate('/registro'));
   divInicioDeSesion.appendChild(inicioSesion);
   divInicioDeSesion.appendChild(correoElectronico);
   divInicioDeSesion.appendChild(contraseña);
@@ -53,3 +53,4 @@ export const inicio = () => {
 
   return inicioDiv;
 };
+
