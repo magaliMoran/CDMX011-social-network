@@ -1,5 +1,5 @@
-// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
+import { googleBotonFun } from '../lib/firebaseAuth.js';
 
 export const inicio = () => {
   const inicioDiv = document.createElement('div');
@@ -32,6 +32,12 @@ export const inicio = () => {
   botonIngresar.textContent = 'Ingresar';
   botonIngresar.id = 'boton-ingresar';
   botonIngresar.addEventListener('click', () => onNavigate('/muro'));
+  const googleBoton = document.createElement('img');
+  googleBoton.id = 'imagenGoogle';
+  googleBoton.src = '/Assets/mounstruo.png';
+  googleBoton.addEventListener('click', () => {
+    googleBotonFun();
+  });
   const opcion = document.createElement('p');
   opcion.textContent = 'o';
   opcion.className = 'letra-o';
@@ -46,6 +52,7 @@ export const inicio = () => {
   divInicioDeSesion.appendChild(correoElectronico);
   divInicioDeSesion.appendChild(contraseña);
   divInicioDeSesion.appendChild(botonIngresar);
+  divInicioDeSesion.appendChild(googleBoton);
   divInicioDeSesion.appendChild(opcion);
   divInicioDeSesion.appendChild(textoSinCuenta);
   divInicioDeSesion.appendChild(registro);
@@ -53,4 +60,3 @@ export const inicio = () => {
 
   return inicioDiv;
 };
-
