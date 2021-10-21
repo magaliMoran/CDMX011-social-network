@@ -1,6 +1,7 @@
-/* eslint-disable import/named */
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
+// eslint-disable-next-line import/no-cycle
+import { crateAccountWithGoogle, createAccountWithGithub } from '../lib/firebaseAuth.js';
 
 export const inicio = () => {
   const inicioDiv = document.createElement('div');
@@ -19,25 +20,33 @@ export const inicio = () => {
   inicioDiv.append(imagenInicioDeSesion);
   const divInicioDeSesion = document.createElement('form');
   divInicioDeSesion.id = 'divInicioDeSesion';
-  divInicioDeSesion.method = 'post';
-  divInicioDeSesion.action = 'muro';
   const inicioSesion = document.createElement('h2');
   inicioSesion.textContent = 'Iniciar Sesion';
   inicioSesion.id = 'inicio-sesion';
   const correoElectronico = document.createElement('input');
   correoElectronico.id = 'correo-electronico';
-  correoElectronico.name = 'correo-electronico';
   correoElectronico.placeholder = 'Correo Electronico';
   const contraseña = document.createElement('input');
-  // este lo va a tomar como índice de mi post
-  contraseña.name = 'contraseña';
   contraseña.id = 'contraseña';
   contraseña.placeholder = 'Contraseña';
   contraseña.type = 'password';
   const botonIngresar = document.createElement('button');
   botonIngresar.textContent = 'Ingresar';
   botonIngresar.id = 'boton-ingresar';
-  botonIngresar.addEventListener('click', () => onNavigate('/muro'));
+  const googleBoton = document.createElement('img');
+  googleBoton.id = 'google';
+  googleBoton.src = '/Assets/imagenGoogle.png';
+  googleBoton.addEventListener('click', () => {
+    // eslint-disable-next-line no-undef
+    crateAccountWithGoogle();
+  });
+  const githubBoton = document.createElement('img');
+  githubBoton.id = 'git';
+  githubBoton.src = '/Assets/git.png';
+  githubBoton.addEventListener('click', () => {
+    createAccountWithGithub();
+  });
+
   const opcion = document.createElement('p');
   opcion.textContent = 'o';
   opcion.className = 'letra-o';
@@ -46,15 +55,18 @@ export const inicio = () => {
   textoSinCuenta.className = 'texto-no-cuenta';
   const registro = document.createElement('a');
   registro.textContent = 'Aqui';
-  registro.addEventListener('click', () => onNavigate('/registro'));
   registro.className = 'registro';
+  registro.addEventListener('click', () => onNavigate('/registro'));
   divInicioDeSesion.appendChild(inicioSesion);
   divInicioDeSesion.appendChild(correoElectronico);
   divInicioDeSesion.appendChild(contraseña);
   divInicioDeSesion.appendChild(botonIngresar);
+  divInicioDeSesion.appendChild(googleBoton);
+  divInicioDeSesion.appendChild(githubBoton);
   divInicioDeSesion.appendChild(opcion);
   divInicioDeSesion.appendChild(textoSinCuenta);
   divInicioDeSesion.appendChild(registro);
+
   inicioDiv.append(divInicioDeSesion);
 
   return inicioDiv;

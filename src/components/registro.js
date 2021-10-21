@@ -1,13 +1,23 @@
-// eslint-disable-next-line import/named
+/* eslint-disable import/no-cycle */
+// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
+// eslint-disable-next-line import/no-cycle
+// eslint-disable-next-line import/named
 import { crateAccountWithEmail } from '../lib/firebaseAuth.js';
+// import { onSingIn } from '../lib/authGoogle.js';
 
 export const registro = () => {
   const registroDiv = document.createElement('div');
   registroDiv.id = 'divRegistro';
   const titulo = document.createElement('h1');
-  titulo.id = 'Titulo';
-  titulo.textContent = '¡Registrate!';
+  titulo.id = 'titulo';
+  titulo.textContent = 'Transmuta';
+  const registrate = document.createElement('h2');
+  registrate.textContent = 'Registrate';
+  registrate.id = 'registrate';
+  const imagenInicioDeSesion = document.createElement('img');
+  imagenInicioDeSesion.id = 'imagenInicioDeSesion';
+  imagenInicioDeSesion.src = '/Assets/mounstruo.png';
   const formRegistro = document.createElement('form');
   formRegistro.id = 'formRegistro';
   const nombre = document.createElement('input');
@@ -18,6 +28,7 @@ export const registro = () => {
   const correoElectronico = document.createElement('input');
   correoElectronico.placeholder = 'Correo electronico';
   correoElectronico.id = 'c-electronico';
+  correoElectronico.type = 'email';
   const contraseña = document.createElement('input');
   contraseña.placeholder = 'Contraseña';
   contraseña.type = 'password';
@@ -25,25 +36,22 @@ export const registro = () => {
   const botonCrearCuenta = document.createElement('button');
   botonCrearCuenta.textContent = 'Crear cuenta';
   botonCrearCuenta.id = 'boton-crear-cuenta';
-  const homeImagen = document.createElement('img');
   botonCrearCuenta.addEventListener('click', () => {
-  const cElectronico = document.getElementById('c-electronico').value;
-  const contra = document.getElementById('contraseña').value;
-  crateAccountWithEmail(cElectronico, contra);
+    crateAccountWithEmail();
   });
+  const homeImagen = document.createElement('img');
   homeImagen.textContent = 'Crear cuenta';
   homeImagen.id = 'homeImagen';
-  homeImagen.src = '/Assets/home6.png';
+  homeImagen.src = '/Assets/home.png';
   homeImagen.addEventListener('click', () => onNavigate('/'));
+  formRegistro.append(registrate);
+  formRegistro.append(nombre);
   formRegistro.append(correoElectronico);
   formRegistro.append(contraseña);
   formRegistro.append(botonCrearCuenta);
   registroDiv.append(titulo);
-  registroDiv.append(nombre);
-  registroDiv.append(correoElectronico);
-  registroDiv.append(contraseña);
-  registroDiv.append(botonCrearCuenta);
+  registroDiv.append(imagenInicioDeSesion);
+  registroDiv.append(formRegistro);
   registroDiv.append(homeImagen);
-  
   return registroDiv;
 };
