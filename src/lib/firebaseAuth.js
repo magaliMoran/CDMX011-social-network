@@ -33,8 +33,7 @@ export function crateAccountWithGoogle() {
 }
 export function createAccountWithGithub() {
   const provider = new firebase.auth.GithubAuthProvider();
-  firebase
-    .auth()
+  firebase.auth()
     .signInWithPopup(provider)
     // eslint-disable-next-line no-unused-vars
     .then(() => {
